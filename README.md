@@ -159,3 +159,5 @@ map  ← slam_toolbox 自动维护
 - **建图模式** (`use_odom=false`)：odom→base_footprint 发布恒等变换 (0,0,0)，从原点建图
 - **导航模式** (`use_odom=true`)：订阅 `/odom` 话题，记录初始值后发布相对偏移量，位置和朝向均做清零处理
 - `robot_state_publisher` 仅发布 URDF 中的轮子关节等非固定部件
+
+https://github.com/user-attachments/assets/dabe0751-7034-4145-9969-ccab9f4f0ee1
