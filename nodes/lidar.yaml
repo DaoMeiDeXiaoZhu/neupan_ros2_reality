@@ -1,0 +1,23 @@
+# lidar.yaml —— 激光雷达过滤节点配置
+
+# 话题名称
+input_topic: '/scan_raw'       # 订阅的原始雷达话题
+output_topic: '/scan'           # 发布的修正后雷达话题
+
+# 发布配置
+publish_rate: 10.0              # 发布频率 (Hz)，0 表示来一帧发一帧
+queue_size: 10                  # 订阅和发布队列长度
+
+# QoS 服务质量配置
+qos_reliability: 'reliable'    # 可靠性策略: reliable(保证送达) / best_effort(低延迟)
+qos_durability: 'volatile'      # 持久性策略: volatile(仅在线订阅者) / transient_local(新订阅者也收到)
+
+# 雷达过滤参数
+range_min: 0.05                 # 最小测距 (m)，盲区内的点设为此值
+range_max: 12.0                 # 最大测距 (m)，超出此距离或无效值设为此值
+replace_nan: true               # 是否将 NaN 替换为 range_max
+replace_inf: true               # 是否将 Inf 替换为 range_max
+clip_range: true                # 是否截断超出 [range_min, range_max] 的值
+
+# 重采样：固定输出点数为 440（0 表示不进行重采样）
+resample_points: 440
